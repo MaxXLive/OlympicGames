@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<AnchorPane fx:id="root" prefHeight="458.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/10.0.2-internal"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="olympic.controller.InfoController">
+    <ImageView fitHeight="74.0" fitWidth="78.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true"
+               AnchorPane.bottomAnchor="283.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="325.0"
+               AnchorPane.topAnchor="14.0">
+        <Image url="@../images/person-placeholder.png"/>
+    </ImageView>
+    <Label fx:id="nameLabel" layoutX="93.0" layoutY="21.0" prefHeight="65.0" prefWidth="304.0" text="Name"
+           wrapText="true" AnchorPane.leftAnchor="93.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="21.0">
+        <font>
+            <Font size="24.0"/>
+        </font>
+    </Label>
+    <Label fx:id="idLabel" alignment="TOP_LEFT" layoutX="20.0" layoutY="96.0" prefHeight="25.0" prefWidth="610.0"
+           text="ID: " wrapText="true" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0"
+           AnchorPane.topAnchor="96.0">
+        <font>
+            <Font size="15.0"/>
+        </font>
+    </Label>
+    <Label fx:id="sexLabel" alignment="TOP_LEFT" layoutX="20.0" layoutY="121.0" prefHeight="25.0" prefWidth="610.0"
+           text="Sex:" wrapText="true" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0"
+           AnchorPane.topAnchor="121.0">
+        <font>
+            <Font size="15.0"/>
+        </font>
+    </Label>
+    <Label fx:id="teamLabel" alignment="TOP_LEFT" layoutX="20.0" layoutY="146.0" prefHeight="25.0" prefWidth="610.0"
+           text="Team:" wrapText="true" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0"
+           AnchorPane.topAnchor="146.0">
+        <font>
+            <Font size="15.0"/>
+        </font>
+    </Label>
+    <Label layoutX="20.0" layoutY="246.0" text="Events:" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="246.0">
+        <font>
+            <Font size="15.0"/>
+        </font>
+    </Label>
+    <Button cancelButton="true" layoutX="345.0" layoutY="332.0" minWidth="-Infinity" mnemonicParsing="false"
+            onAction="#closeWindow" prefWidth="60.0" text="Close" AnchorPane.bottomAnchor="14.0"
+            AnchorPane.rightAnchor="20.0"/>
+    <TableView fx:id="eventTable" layoutX="25.0" layoutY="264.0" prefHeight="150.0" prefWidth="610.0"
+               AnchorPane.bottomAnchor="44.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0"
+               AnchorPane.topAnchor="271.0">
+        <columns>
+            <TableColumn prefWidth="200.0" text="Event"/>
+            <TableColumn prefWidth="98.0" text="Olympic Game"/>
+            <TableColumn prefWidth="110.0" text="City"/>
+            <TableColumn minWidth="0.0" prefWidth="40.0" text="Age"/>
+            <TableColumn prefWidth="53.0" text="Height"/>
+            <TableColumn prefWidth="53.0" text="Weight"/>
+            <TableColumn prefWidth="52.0" text="Medal"/>
+            <TableColumn prefWidth="100.0" text="Sport"/>
+        </columns>
+    </TableView>
+    <Label fx:id="lastAgeLabel" alignment="TOP_LEFT" layoutX="20.0" layoutY="171.0" prefHeight="25.0" prefWidth="610.0"
+           text="Last Age:" wrapText="true" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0"
+           AnchorPane.topAnchor="171.0">
+        <font>
+            <Font size="15.0"/>
+        </font>
+    </Label>
+    <Button defaultButton="true" layoutX="487.0" layoutY="419.0" minWidth="-Infinity" mnemonicParsing="false"
+            onAction="#addEvent" prefHeight="25.0" prefWidth="83.0" text="Add Event" AnchorPane.bottomAnchor="14.0"
+            AnchorPane.rightAnchor="90.0"/>
+    <Label fx:id="lastHeightLabel" alignment="TOP_LEFT" layoutX="20.0" layoutY="196.0" prefHeight="25.0"
+           prefWidth="610.0" text="Last Height:" wrapText="true" AnchorPane.leftAnchor="20.0"
+           AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="196.0">
+        <font>
+            <Font size="15.0"/>
+        </font>
+    </Label>
+    <Label fx:id="lastWeightLabel" alignment="TOP_LEFT" layoutX="20.0" layoutY="221.0" prefHeight="25.0"
+           prefWidth="610.0" text="Last Weight:" wrapText="true" AnchorPane.leftAnchor="20.0"
+           AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="221.0">
+        <font>
+            <Font size="15.0"/>
+        </font>
+    </Label>
+</AnchorPane>

@@ -1,0 +1,32 @@
+"ID","Name","Sex","Age","Height","Weight","Team","NOC","Games","Year","Season","City","Sport","Event","Medal"
+"1","A Dijiang","M",24,180.0,80.0,"China","CHN","1992 Summer",1992,"Summer","Barcelona","Basketball","Basketball Men's Basketball",NA
+"2","A Lamusi","M",23,170.0,60.0,"China","CHN","2012 Summer",2012,"Summer","London","Judo","Judo Men's Extra-Lightweight",NA
+"3","Gunnar Nielsen Aaby","M",24,0.0,0.0,"Denmark","DEN","1920 Summer",1920,"Summer","Antwerpen","Football","Football Men's Football",NA
+"4","Edgar Lindenau Aabye","M",34,0.0,0.0,"Denmark/Sweden","DEN","1900 Summer",1900,"Summer","Paris","Tug-Of-War","Tug-Of-War Men's Tug-Of-War","Gold"
+"5","Christine Jacoba Aaftink","F",21,185.0,82.0,"Netherlands","NED","1988 Winter",1988,"Winter","Calgary","Speed Skating","Speed Skating Women's 500 metres",NA
+"5","Christine Jacoba Aaftink","F",21,185.0,82.0,"Netherlands","NED","1988 Winter",1988,"Winter","Calgary","Speed Skating","Speed Skating Women's 1,000 metres",NA
+"5","Christine Jacoba Aaftink","F",25,185.0,82.0,"Netherlands","NED","1992 Winter",1992,"Winter","Albertville","Speed Skating","Speed Skating Women's 500 metres",NA
+"5","Christine Jacoba Aaftink","F",25,180.0,82.0,"Netherlands","NED","1992 Winter",1992,"Winter","Albertville","Speed Skating","Speed Skating Women's 1,000 metres",NA
+"5","Christine Jacoba Aaftink","F",27,185.0,82.0,"Netherlands","NED","1994 Winter",1994,"Winter","Lillehammer","Speed Skating","Speed Skating Women's 500 metres",NA
+"5","Christine Jacoba Aaftink","F",27,185.0,88.0,"Netherlands","NED","1994 Winter",1994,"Winter","Lillehammer","Speed Skating","Speed Skating Women's 1,000 metres",NA
+"6","Per Knut Aaland","M",31,188.0,75.0,"United States","USA","1992 Winter",1992,"Winter","Albertville","Cross Country Skiing","Cross Country Skiing Men's 10 kilometres",NA
+"6","Per Knut Aaland","M",31,188.0,75.0,"United States","USA","1992 Winter",1992,"Winter","Albertville","Cross Country Skiing","Cross Country Skiing Men's 50 kilometres",NA
+"6","Per Knut Aaland","M",31,188.0,75.0,"United States","USA","1992 Winter",1992,"Winter","Albertville","Cross Country Skiing","Cross Country Skiing Men's 10/15 kilometres Pursuit",NA
+"6","Per Knut Aaland","M",31,188.0,75.0,"United States","USA","1992 Winter",1992,"Winter","Albertville","Cross Country Skiing","Cross Country Skiing Men's 4 x 10 kilometres Relay","Gold"
+"6","Per Knut Aaland","M",33,188.0,75.0,"United States","USA","1994 Winter",1994,"Winter","Lillehammer","Cross Country Skiing","Cross Country Skiing Men's 10 kilometres",NA
+"6","Per Knut Aaland","M",33,188.0,75.0,"United States","USA","1994 Winter",1994,"Winter","Lillehammer","Cross Country Skiing","Cross Country Skiing Men's 30 kilometres",NA
+"6","Per Knut Aaland","M",33,188.0,75.0,"United States","USA","1994 Winter",1994,"Winter","Lillehammer","Cross Country Skiing","Cross Country Skiing Men's 10/15 kilometres Pursuit",NA
+"6","Per Knut Aaland","M",33,188.0,75.0,"United States","USA","1994 Winter",1994,"Winter","Lillehammer","Cross Country Skiing","Cross Country Skiing Men's 4 x 10 kilometres Relay",NA
+"7","John Aalberg","M",31,183.0,72.0,"United States","USA","1992 Winter",1992,"Winter","Albertville","Cross Country Skiing","Cross Country Skiing Men's 10 kilometres",NA
+"7","John Aalberg","M",31,183.0,72.0,"United States","USA","1992 Winter",1992,"Winter","Albertville","Cross Country Skiing","Cross Country Skiing Men's 50 kilometres",NA
+"7","John Aalberg","M",31,183.0,72.0,"United States","USA","1992 Winter",1992,"Winter","Albertville","Cross Country Skiing","Cross Country Skiing Men's 10/15 kilometres Pursuit",NA
+"7","John Aalberg","M",31,183.0,72.0,"United States","USA","1992 Winter",1992,"Winter","Albertville","Cross Country Skiing","Cross Country Skiing Men's 4 x 10 kilometres Relay",NA
+"7","John Aalberg","M",33,183.0,72.0,"United States","USA","1994 Winter",1994,"Winter","Lillehammer","Cross Country Skiing","Cross Country Skiing Men's 10 kilometres",NA
+"7","John Aalberg","M",33,183.0,72.0,"United States","USA","1994 Winter",1994,"Winter","Lillehammer","Cross Country Skiing","Cross Country Skiing Men's 30 kilometres",NA
+"8","Max Ermackov","M",33,183.0,72.0,"Germany","GER","1990 Winter",1990,"Winter","Lillehammer","Cross Country Skiing","Cross Country Skiing Men's 10/15 kilometres Pursuit","Gold"
+"8","Max Ermackov","M",33,199.0,72.0,"Germany","GER","1994 Winter",1994,"Winter","Lillehammer","Cross Country Skiing","Hola Country Skiing Men's 10/15 kilometres Pursuit","Silver"
+"8","Max Ermackov","M",33,197.0,72.0,"Germany","GER","1994 Summer",1994,"Summer","Lillehammer","Cross Country Skiing","Hola Country Skiing Men's 10/15 kilometres Pursuit","Silver"
+"795","Tomasz Adamiec","M",26,171.0,69.5,"Poland","POL","2008 Summer",2008,"Summer","Beijing","Judo","Judo Men's Half-Lightweight",NA
+"795","Tomasz Adamiec","M",30,171.0,69.5,"Poland","POL","2012 Summer",2012,"Summer","London","Judo","Judo Men's Lightweight",NA
+"1165757","Max Ermackov","M",20,173.0,65.0,"INF19A","DHBW","Summer 2020",2020,"Summer","Cologne","E-Sport","Overwatch League","Gold"
+"1165757","Max Ermackov","M",21,173.0,66.0,"INF19A","DHBW","Winter 2021",2021,"Winter","Berlin","E-Sport","CSGO League","Silver"
