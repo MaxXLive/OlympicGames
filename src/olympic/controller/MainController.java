@@ -1,5 +1,12 @@
 package olympic.controller;
 
+import java.io.IOException;
+import java.net.URL;
+import java.util.Comparator;
+import java.util.Map;
+import java.util.ResourceBundle;
+import java.util.function.Supplier;
+import java.util.stream.Stream;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -14,7 +21,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
-import javafx.stage.FileChooser;
 import olympic.entity.Athlete;
 import olympic.entity.Event;
 import olympic.entity.Game;
@@ -23,21 +29,6 @@ import olympic.entity.Team;
 import olympic.util.FileUtils;
 import olympic.util.ListUtils;
 import olympic.util.WindowUtils;
-
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.net.URL;
-import java.util.Comparator;
-import java.util.Map;
-import java.util.ResourceBundle;
-import java.util.Scanner;
-import java.util.function.Supplier;
-import java.util.stream.Stream;
-
-import static olympic.util.StringUtils.CSV_HEADER;
 
 public class MainController implements Initializable {
 
@@ -58,12 +49,18 @@ public class MainController implements Initializable {
     @FXML
     private TextField searchField;
     @FXML
-    private Label entitiesLabel;
+    private Label entriesLabel;
     @FXML
     private CheckMenuItem darkThemeCheckbox;
 
+    /**
+     * Initializes the controller: Adds listeners, loads default file
+     *
+     * @param location  The location used to resolve relative paths for the root object, or {@code null} if the location is not known. (Aren't used, needed for override)
+     * @param resources The resources used to localize the root object, or null if the root object was not localized. (Aren't used, needed for override)
+     */
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize(URL location, ResourceBundle resources) {
         searchField.textProperty().addListener((observable, oldValue, newValue) -> updateListView());
         athletesList.setOnMouseClicked(this::listItemClick);
         athletesList.setOnKeyPressed(this::listItemEnter);
@@ -73,11 +70,11 @@ public class MainController implements Initializable {
 
 
     @FXML
-    public void closeWindow() {
+    private void closeWindow() {
         System.exit(0);
     }
 
-    public void listItemClick(MouseEvent click) {
+    private void listItemClick(MouseEvent click) {
         if (click.getClickCount() == 2) {
             showInfoWindow();
         }
@@ -130,7 +127,7 @@ public class MainController implements Initializable {
     }
 
     @FXML
-    public void clearDatabase() {
+    private void clearDatabase() {
         FileUtils.clear();
         ListUtils.clear();
         updateListView();
@@ -138,31 +135,33 @@ public class MainController implements Initializable {
 
 
     @FXML
-    public void loadDatabase() {
+    private void loadDatabase() {
         FileUtils.loadDatabase(root);
         updateListView();
     }
 
     @FXML
-    public void saveDatabase() {
+    private void saveDatabase() {
         FileUtils.saveDatabase(root);
     }
 
     @FXML
-    public void saveFile() {
+    private void saveFile() {
         FileUtils.saveFile(root);
     }
 
+    /**
+     * Gets called when changing tabs to refresh entries size
+     */
     public void changeTab() {
-        if (entitiesLabel != null) {
-            entitiesLabel.setText("Entities: " + getCurrentListView().getItems().size());
+        if (entriesLabel != null) {
+            entriesLabel.setText("Entries: " + getCurrentListView().getItems().size());
         }
     }
 
 
-    public void updateListView() {
-
-        // for each collumn, filtered by search and sorted
+    private void updateListView() {
+        // for each column, filtered by search and sorted
         athletesList.getItems().clear();
         Supplier<Stream<Map.Entry<String, Athlete>>> athletes = () -> ListUtils.getAthletes().entrySet().stream()
                 .filter(athlete -> athlete.getValue().getName().toLowerCase().contains(searchField.getText().toLowerCase()))
@@ -170,25 +169,25 @@ public class MainController implements Initializable {
         athletes.get().forEach(athlete -> athletesList.getItems().add(athlete.getValue()));
 
         teamsList.getItems().clear();
-        Supplier<Stream<Team>> teams = () -> Team.teams.stream()
+        Supplier<Stream<Team>> teams = () -> Team.getTeams().stream()
                 .filter(team -> team.getName().toLowerCase().contains(searchField.getText().toLowerCase()))
                 .sorted(Comparator.comparing(Team::getName));
         teams.get().forEach(team -> teamsList.getItems().add(team.getName()));
 
         sportsList.getItems().clear();
-        Supplier<Stream<Sport>> sports = () -> Sport.sports.stream()
+        Supplier<Stream<Sport>> sports = () -> Sport.getSports().stream()
                 .filter(sport -> sport.getName().toLowerCase().contains(searchField.getText().toLowerCase()))
                 .sorted(Comparator.comparing(Sport::getName));
         sports.get().forEach(sport -> sportsList.getItems().add(sport.getName()));
 
         eventsList.getItems().clear();
-        Supplier<Stream<Event>> events = () -> Event.events.stream()
+        Supplier<Stream<Event>> events = () -> Event.getEvents().stream()
                 .filter(event -> event.getName().toLowerCase().contains(searchField.getText().toLowerCase()))
                 .sorted(Comparator.comparing(Event::getName));
         events.get().forEach(event -> eventsList.getItems().add(event.getName()));
 
         gamesList.getItems().clear();
-        Supplier<Stream<Game>> games = () -> Game.games.stream()
+        Supplier<Stream<Game>> games = () -> Game.getGames().stream()
                 .filter(game -> game.getName().toLowerCase().contains(searchField.getText().toLowerCase()))
                 .sorted(Comparator.comparing(Game::getName));
         games.get().forEach(game -> gamesList.getItems().add(game.getName()));
@@ -199,13 +198,19 @@ public class MainController implements Initializable {
 
     private ListView<?> getCurrentListView() {
         int selectedTabIndex = tabs.getSelectionModel().getSelectedIndex();
-        switch (selectedTabIndex){
-            case 0: return athletesList;
-            case 1: return teamsList;
-            case 2: return sportsList;
-            case 3: return eventsList;
-            case 4: return gamesList;
-            default: throw new IllegalStateException("Unexpected tab index: " + selectedTabIndex);
+        switch (selectedTabIndex) {
+            case 0:
+                return athletesList;
+            case 1:
+                return teamsList;
+            case 2:
+                return sportsList;
+            case 3:
+                return eventsList;
+            case 4:
+                return gamesList;
+            default:
+                throw new IllegalStateException("Unexpected tab index: " + selectedTabIndex);
         }
     }
 

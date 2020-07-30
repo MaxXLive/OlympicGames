@@ -10,11 +10,10 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 import olympic.entity.Athlete;
 import olympic.entity.Event;
 import olympic.entity.Medal;
-
+import olympic.util.WindowUtils;
 import static olympic.util.StringUtils.SEASONS;
 import static olympic.util.StringUtils.isNeitherEmptyNorBlank;
 
@@ -51,11 +50,20 @@ public class AddEntryController {
     @FXML
     private ToggleGroup sexGroup;
 
-    
+    /**
+     * Used to get the values out of the saved athlete object.
+     *
+     * @return Return actual athlete object for data access.
+     */
     public Athlete getAthleteObject() {
         return athleteObject.get();
     }
 
+    /**
+     * Used as observable whenever the athlete variable gets updated (click on add button).
+     *
+     * @return Returns athlete object property which can be observed with addListener outside of this class.
+     */
     public ObjectProperty<Athlete> athleteObjectProperty() {
         return athleteObject;
     }
@@ -71,8 +79,7 @@ public class AddEntryController {
 
     @FXML
     private void cancelClick() {
-        Stage stage = (Stage) root.getScene().getWindow();
-        stage.close();
+        WindowUtils.closeWindow(root);
     }
 
     private void showAlert() {
@@ -109,6 +116,12 @@ public class AddEntryController {
         cancelClick();
     }
 
+    /**
+     * Loads values from passed athlete parameter,
+     * sets text fields to number only where necessary and loads possible Medals.
+     *
+     * @param athlete Pass athlete if you want to edit one else pass {@code null} to create a new one
+     */
     public void init(Athlete athlete) {
         onlyAllowNumbers(age);
         onlyAllowNumbers(weight);
@@ -141,7 +154,7 @@ public class AddEntryController {
         teamNoc.setText(athlete.getTeam().getNoc());
     }
 
-    public void onlyAllowNumbers(TextField textField) {
+    private void onlyAllowNumbers(TextField textField) {
         textField.textProperty().addListener((observable, oldValue, newValue) -> {
             if (!newValue.matches("\\d*")) {
                 textField.setText(newValue.replaceAll("[^\\d]", ""));

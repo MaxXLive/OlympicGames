@@ -14,14 +14,26 @@ import javafx.stage.FileChooser;
 import olympic.entity.Athlete;
 import static olympic.util.StringUtils.CSV_HEADER;
 
+/**
+ * Handles everything related on file loading and saving
+ */
 public class FileUtils {
 
     private static String filePath = "olympic.db";
 
+    /**
+     * Resets file path to {@code null}. Therefore disables saving without explicitly selecting file path.
+     */
     public static void clear() {
         FileUtils.filePath = null;
     }
 
+    /**
+     * Shows open file dialog, updates filepath and calls file loading.
+     * Selection of .db files and all file types is possible.
+     *
+     * @param root Root layout of window of type border pane.
+     */
     public static void loadDatabase(BorderPane root) {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Open Database File");
@@ -37,6 +49,12 @@ public class FileUtils {
         }
     }
 
+    /**
+     * Shows save file dialog, updates filepath and calls file saving.
+     * Selection of .db files and all file types is possible.
+     *
+     * @param root Root layout of window of type border pane.
+     */
     public static void saveDatabase(BorderPane root) {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Save Database File");
@@ -52,6 +70,9 @@ public class FileUtils {
         }
     }
 
+    /**
+     * Reads .db (csv) file from filepath and adds entries to list.
+     */
     public static void readFile() {
         ListUtils.clear();
         try {
@@ -71,16 +92,22 @@ public class FileUtils {
         }
     }
 
+    /**
+     * Saves current list entries to filepath
+     *
+     * @param root Root layout of window of type border pane.
+     */
     @FXML
     public static void saveFile(BorderPane root) {
-        if(filePath == null){
+        if (filePath == null) {
             saveDatabase(root);
-        }else{
+        } else {
             try (BufferedWriter bw = new BufferedWriter(new FileWriter(filePath))) {
                 System.out.println("Writing to file... " + new File(filePath).getAbsolutePath());
                 String header = CSV_HEADER + "\n";
                 bw.write(header);
-                Stream<Athlete> sortedAthletes = ListUtils.getAthletes().values().stream().sorted(Comparator.comparing(Athlete::getIdNumber));
+                Stream<Athlete> sortedAthletes = ListUtils.getAthletes().values().stream()
+                        .sorted(Comparator.comparing(Athlete::getIdNumber));
                 sortedAthletes.forEach(athlete -> {
                     try {
                         bw.write(athlete.toCSV());
@@ -95,5 +122,4 @@ public class FileUtils {
             }
         }
     }
-
 }

@@ -64,7 +64,7 @@
                 </Label>
 
                 <Pane HBox.hgrow="ALWAYS" />
-                <Label fx:id="entitiesLabel" />
+                <Label fx:id="entriesLabel" />
                 <TextField fx:id="searchField" promptText="🔍" />
             </ToolBar>
         </VBox>
