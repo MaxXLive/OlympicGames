@@ -60,7 +60,7 @@ public class WindowUtils {
         primaryStage.setScene(new Scene(root, 600, 475));
         primaryStage.getIcons().add(new Image(Main.class.getResourceAsStream("/images/icon.png")));
         primaryStage.setMinWidth(400);
-        primaryStage.setMinHeight(200);
+        primaryStage.setMinHeight(400);
         primaryStage.show();
 
         openWindows.add((Pane) root);
@@ -101,7 +101,7 @@ public class WindowUtils {
         stage.getIcons().add(new Image(WindowUtils.class.getResourceAsStream("/images/icon.png")));
         stage.setMinWidth(400);
         stage.setMaxWidth(900);
-        stage.setMinHeight(400);
+        stage.setMinHeight(440);
         stage.setMaxHeight(600);
         stage.setOnCloseRequest(windowEvent -> closeWindow(dialogRoot));
         stage.show();

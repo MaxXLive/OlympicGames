@@ -10,6 +10,9 @@ Use with data from https://www.kaggle.com/heesoo37/120-years-of-olympic-history-
 7055197 - TINF19A - DHBW Stuttgart
 
 ## Special Features
+- All windows have minimum width and height values.
+- All windows are dynamically resizeable.
+
 #### Menu
 - Start a new database: File -> New
 - Open database files: File -> Open...
@@ -30,6 +33,7 @@ Use with data from https://www.kaggle.com/heesoo37/120-years-of-olympic-history-
 - Shows basic information about the athlete
 - Calculates last event and shows last age, last height and last weight
 - All events in which the athlete was involved are displayed in a table
+- Table headers can be clicked to change the order of entries and changed in size.
 - By clicking "Add Event" the new entry window shows up with pre-inserted values of the athlete (Name, Sex, Team, Last age, Last height, Last weight)
 
 #### Add entry
@@ -49,6 +53,9 @@ https://gluonhq.com/products/javafx/
 
 #### Add Java FX to project
 Add lib directory of javafx folder to project libraries
+
+#### Resources
+Set `/res` as resources directory.
 
 #### Edit Run configuration
 VM-Options:
