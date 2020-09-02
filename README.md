@@ -7,7 +7,7 @@ Use with data from https://www.kaggle.com/heesoo37/120-years-of-olympic-history-
 ![Screenshot](screenshot.png)
 
 ## Author
-7055197 - TINF19A - DHBW Stuttgart
+Max Ermackov - [MaxXLive](https://github.com/MaxXLive)
 
 ## Special Features
 - All windows have minimum width and height values.
